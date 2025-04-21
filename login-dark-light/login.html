@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Login Dark/Light Mode</title>
+</head>
+<body>
+    <main id="container">
+        <form id="login-form">
+            <div id="form-header">
+                <h1>Login</h1>
+                <i id="mode-icon" class="fa-solid fa-moon"></i>
+            </div>
+            <div id="social-midea">
+                <a href="#">
+                    <img src="assets/img/facebook.png.png" alt="Facebook logo">
+                </a>
+                <a href="#">
+                    <img src="assets/img/google.png.png" alt="Google logo">
+                </a>
+                <a href="#">
+                    <img src="assets/img/github.png.png" alt="Github Logo">
+                </a>
+            </div>
+           <div id="inputs">
+            <div class="input-box">
+                <label for="name">Name</label>
+                <div class="input-field">
+                    <i class="fa-solid fa-user"></i>
+                    <input class="inputs" type="text" name="name" id="name" oninput="nameValidation()">
+                </div>
+                <span class="span-required">The name must have at least 3 characters</span>
+            </div>
+            <div class="input-box">
+                <label for="email">E-mail</label>
+                <div class="input-field">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input oninput=" emailValidation()" class="inputs" type="text" name="email" id="email">
+                </div>
+                <span class="span-required">Please enter a valid email</span>
+            </div>
+            <div class="input-box">
+                <label for="password">Password</label>
+                <div class="input-field">
+                    <i class="fa-solid fa-key"></i>
+                    <input oninput="passwordValidantion ()" class="inputs" type="password" name="password" id="password">
+                </div>
+                <span class="span-required">Must contain 8-32 characters, with at least<br> 1 upercase, 1 number and 1 special character</span>
+                <div id="forgot-password">
+                    <a href="#">
+                        Forgot your password ?
+                    </a>
+                </div>
+            </div>
+           </div>
+            <button type="submit" id="login-button">Login</button>
+        </form>
+    </main>
+</body>
+<script src="assets/js/script.js"></script>
+</html>

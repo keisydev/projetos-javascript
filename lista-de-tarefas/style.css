@@ -1,0 +1,93 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eeeeee;
+}
+h1{
+    text-align: center;
+    font-size: 3em;
+}
+header{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    width: 90%;
+    margin: auto auto;
+}
+input{
+    height: 85px;
+    font-size: 2em;
+    width: 80%;
+    padding-left: 10%;
+}
+button.add{
+    width: 20%;
+    cursor: pointer;
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    border: none;
+    height: 85px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+
+}
+main {
+    display: flex;
+    flex-flow: row wrap;
+    width: 90%;
+    margin: auto auto;
+    padding-top: 40px;
+}
+.item{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    align-content: center;
+    background-color: white;
+    height: 80px;
+    width: 100%;
+    margin-bottom: 2%;
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.156);
+    cursor: pointer;
+}
+.item.clicado{
+    background-color: #d4f6d9;
+    color: gray;
+}
+.item.clicado .item-nome{
+    text-decoration: line-through;
+}
+.item-icone{
+    flex: 5%;
+    text-align: center;
+    font-size: 2em;
+    
+}
+.item-nome{
+    flex: 80%;
+    font-size: 20px;
+    font-weight: bold;
+}
+.item-botao{
+    flex: 5%;
+}
+#lixo{
+    font-size: medium;
+}
+.delete{
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    height: 80px;
+    width: 100%;
+}
+#check{
+    color: green;
+    
+}
