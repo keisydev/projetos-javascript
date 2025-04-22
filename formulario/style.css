@@ -17,7 +17,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 2rem;
 }
 .content{
     background-color: var(--colorDark2);
@@ -25,6 +26,8 @@ body{
     border-radius: 1rem;
     box-shadow: 0 0 10px var(--colorPurple1);
     min-width: 30%;
+    max-width: 500px;
+    width: 100%;
     overflow: auto;
 }
 h1{
