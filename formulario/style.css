@@ -9,6 +9,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
 body{
@@ -17,7 +18,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    max-height: 60vh;
+    min-height: 100vh;
     padding: 2rem;
 }
 .content{
@@ -25,7 +26,6 @@ body{
     padding: 2rem;
     border-radius: 1rem;
     box-shadow: 0 0 10px var(--colorPurple1);
-    min-width: 30%;
     max-width: 500px;
     width: 100%;
     overflow: auto;
