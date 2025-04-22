@@ -19,7 +19,6 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
-    padding: 1rem;
     overflow: hidden;
 }
 .content{
