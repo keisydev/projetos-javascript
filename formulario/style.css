@@ -19,13 +19,14 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 2rem;
+    padding: 1rem;
 }
 .content{
     background-color: var(--colorDark2);
     padding: 2rem;
     border-radius: 1rem;
     box-shadow: 0 0 10px var(--colorPurple1);
+    max-height: 90vh;
     max-width: 500px;
     width: 100%;
     overflow: auto;
@@ -72,6 +73,11 @@ input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 30px var(--colorDark1) inset !important;
     -webkit-text-fill-color: var(--colorWhite) !important;
     transition: background-color 5000s ease-in-out 0s;
+}
+
+textarea{
+    height: 100px;
+    resize: vertical;
 }
 
 .box-select {
