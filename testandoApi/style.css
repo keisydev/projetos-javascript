@@ -1,27 +1,229 @@
-input[type='number'] {
-    padding: 5px;
-    width: 50px;
-    border-radius: 5px;
+/* Estilo geral da página */
+body {
+  background: linear-gradient(to right, #74ebd5, #acb6e5);
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Títulos */
+h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: #555;
+  margin-top: 30px;
+}
+
+/* Formulário */
+form {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  margin: auto;
+}
+
+/* Grupo de input de ID */
+.input-group label {
+  font-weight: bold;
+  font-size: 16px;
+  min-width: 140px; /* reserva um espaço fixo para o texto */
+}
+
+.input-group input {
+  width: 200px; /* tamanho fixo */
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #5e3fd7;
+  box-shadow: 0 0 5px rgba(94, 63, 215, 0.5);
+}
+
+
+
+input[type="number"] {
+  padding: 10px;
+  width: 100%;
+  max-width: 200px;
+  margin: auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* Grupo de checkboxes */
+.checkbox-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkbox-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+
+/* Linha separadora */
+hr {
+  border: none;
+  height: 1px;
+  background-color: #ddd;
+  margin: 20px 0;
+}
+
+/* Grupo de botões */
+.button-group {
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #5c6bc0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #3949ab;
+}
+
+/* Resultado */
+#result-style {
+  display: flex;
+  align-items: flex-start; /* Deixa a imagem no topo */
+  gap: 30px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 5px 30px rgba(0,0,0,0.2);
+  width: 90%;
+  max-width: 900px;
+  margin: 30px auto 0;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+#img-container {
+  flex-shrink: 0; /* Evita a imagem esticar */
+}
+
+#img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+#content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1; /* Faz o texto ocupar o espaço disponível */
+}
+
+
+#result-style.fade-in {
+  display: flex; /* Aparece em flex quando tiver resultado */
+  opacity: 1;
+}
+
+/* Imagem do personagem */
+img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+/* Efeito de zoom suave na imagem */
+img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  transition: transform 0.4s ease; /* Transição suave */
+}
+
+img:hover {
+  transform: scale(1.05); /* Dá um leve zoom */
+}
+
+
+/* Conteúdo das informações */
+#content p {
+  text-align: left;
+  margin: 10px 0;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  form, .result-style {
+    width: 95%;
+    padding: 20px;
   }
-  
-  form label {
-    padding-left: 20px;
+
+  h1 {
+    font-size: 2rem;
   }
-  
-  .result-style {
-    display: flex;
-    text-align: left;
-    width: 80%;
-    margin: auto;
-    margin-top: 30px;
-    border-radius: 20px;
-    box-shadow: 0 5px 30px rgb(0 0 0 / 0.7);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    box-sizing: border-box;
+}
+
+/* Animação para o resultado aparecer suavemente */
+.fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  img {
-    max-height: 200px;
-    padding-right: 20px;
-    border-radius: 20px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+/* Loader giratório */
+.loader {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #5c6bc0;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
