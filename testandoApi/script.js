@@ -15,19 +15,53 @@ const fetchApi = (value) => {
 }
 
 const keys = ['name', 'status', 'species', 'gender', 'origin', 'episode']
+const newKeys = {
+    name: 'Nome',
+    status: 'Status',
+    species: 'Espécie',
+    gender: 'Gênero',
+    origin: 'Planeta de origem',
+    episode: 'Episódios',
+}
 
 const buildResult = (result) => {
-    const newObject = {}
-    keys.map((key) => document.getElementById(key))
+    return keys.map((key) => document.getElementById(key))
     .map((element) => {
-        element.checked && (newObject[element.name] = result[element.name])
+        if(element.checked && (Array.isArray(result[element.name])) === true){
+            const arrayResult = result[element.name].join('\r\n')
+            const newElen = document.createElement('p')
+            newElen.innerHTML = `${newKeys[element.name]}: ${arrayResult}`
+            content.appendChild(newElen)
+        }else if(element.checked === true && element.name === 'origin'){
+            const newElen = document.createElement('p')
+            newElen.innerHTML = `${newKeys[element.name]}: ${result[element.name].name}`
+            content.appendChild(newElen)
+        }else if(element.checked === true && typeof(result[element.name]) !== 'object'){
+            const newElen = document.createElement('p')
+            newElen.innerHTML = `${newKeys[element.name]}: ${result[element.name]}`
+            content.appendChild(newElen)
+        }
+        
     })
-    return newObject
 }
 
 btnGo.addEventListener('click', async (event) => {
     event.preventDefault()
+    if(characterId.value === ''){
+        return content.innerHTML = 'É necessário escolher o ID do personagem'
+    }
     const result = await fetchApi(characterId.value)
-    content.textContent = `${JSON.stringify(buildResult(result), undefined, 2)}`
-    image.src = `${result.image}`
+    if(content.firstChild === null){
+        containerResult.className = 'result-style'
+        buildResult(result)
+        image.src = `${result.image}`
+    }else {
+        content.innerHTML = ''
+        containerResult.className = 'result-style'
+        buildResult(result)
+        image.src = `${result.image}`
+    }
+
 })
+
+btnReset.addEventListener('click', () => location.reload())
